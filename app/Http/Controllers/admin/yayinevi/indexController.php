@@ -26,7 +26,7 @@ class indexController extends Controller
 
 
         if($insert){
-            return redirect()->back()->with('status','Yayın Evi Başarı İle Eklendi');
+            return redirect()->to('/admin/yayinevi')->send();
         }else{
             return redirect()->back()->with('status','Yayın Evi Eklenemedi');
         }

@@ -24,7 +24,6 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group label-floating is-empty">
-                                            <label class="control-label">Yayın Evi Adı</label>
                                             <input type="text" name="name" class="form-control" value="{{$data[0]['name']}}">
                                             <span class="material-input"></span></div>
                                     </div>
