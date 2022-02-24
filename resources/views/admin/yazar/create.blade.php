@@ -51,7 +51,7 @@
                                 </div>
 
                                 <div class="row">
-                                <button type="submit" class="btn btn-primary pull-right">Yayın Evi Ekle</button>
+                                <button type="submit" class="btn btn-primary pull-right">Yazar Ekle</button>
                                 </div>
 
                             </form>

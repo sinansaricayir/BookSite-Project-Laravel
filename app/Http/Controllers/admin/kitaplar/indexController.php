@@ -9,6 +9,8 @@ use App\Helper\mHelper;
 use App\Kitaplar;
 use App\YayinEvi;
 use App\Yazarlar;
+use App\Kategoriler;
+
 
 
 class indexController extends Controller
@@ -21,8 +23,10 @@ class indexController extends Controller
     public function create(){
         $yazar = Yazarlar::all();
         $yayinevi = YayinEvi::all();
+        $kategoriler = Kategoriler::all();
 
-        return view('admin.kitaplar.create',['yazar'=>$yazar,'yayinevi'=>$yayinevi]);
+
+        return view('admin.kitaplar.create',['yazar'=>$yazar,'yayinevi'=>$yayinevi,'kategoriler'=>$kategoriler]);
     }
 
     public function store(Request $request){
@@ -40,10 +44,11 @@ class indexController extends Controller
     public function edit($id){
         $yazar = Yazarlar::all();
         $yayinevi = YayinEvi::all();
+        $kategoriler = Kategoriler::all();
         $c = Kitaplar::where('id',$id)->count();
         if($c != 0){
             $data = Kitaplar::where('id',$id)->get();
-            return view('admin.kitaplar.edit',['data'=>$data,'yazar'=>$yazar,'yayinevi'=>$yayinevi]);
+            return view('admin.kitaplar.edit',['data'=>$data,'yazar'=>$yazar,'yayinevi'=>$yayinevi,'kategoriler'=>$kategoriler]);
         }else{
             return redirect('/');
         }

@@ -4,10 +4,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
+                    <a href="{{route('admin.yayinevi.create')}}" class="btn btn-primary">Yeni Yayınevi Ekle</a>
                     <div class="card">
                         <div class="card-header" data-background-color="purple">
                             <h4 class="title">Yayın Evleri</h4>
-                            <p class="category">Burada eklenen yayın evleri listesini bulabilirsiniz.</p>
+                            <p class="category">Burada eklenen yayınevlerinin listesini bulabilirsiniz.</p>
                         </div>
                         <div class="card-content table-responsive">
                             <table class="table">

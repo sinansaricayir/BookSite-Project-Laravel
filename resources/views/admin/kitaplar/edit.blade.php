@@ -23,7 +23,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group label-floating is-empty">
-                                            <label class="control-label">Kitap Adı</label>
+                                            <label class="control-label">{{$data[0]['name']}}</label>
                                             <input type="text" name="name" class="form-control">
                                             <span class="material-input"></span>
                                         </div>
@@ -70,6 +70,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
+                                            <label class="control-label">{{$data[0]['fiyat']}}</label>
                                             <input type="number" name="fiyat" class="form-control">
                                             <span class="material-input"></span>
                                         </div>
@@ -79,7 +80,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group label-floating is-empty">
-                                            <textarea name="aciklama" id="" cols="30" rows="10" class="form-control"></textarea>
+                                            <textarea name="aciklama" id="" cols="30" rows="10" class="form-control">{{$data[0]['aciklama']}}</textarea>
                                             <span class="material-input"></span>
                                         </div>
                                     </div>

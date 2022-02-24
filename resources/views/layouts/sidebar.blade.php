@@ -5,40 +5,40 @@ Tip 1: You can change the color of the sidebar using: data-color="purple | blue 
 Tip 2: you can also add an image using data-image tag
 -->
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text">
-            Creative Tim
+        <a href="{{route('admin.index')}}" class="simple-text">
+            Sinan Sarıçayır
         </a>
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="active">
-                <a href="dashboard.html">
+                <a href="{{route('admin.index')}}">
                     <i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
             </li>
             <li>
-                <a href="./user.html">
+                <a href="{{route('admin.yayinevi.index')}}">
                     <i class="material-icons">person</i>
-                    <p>User Profile</p>
+                    <p>Yayın Evleri</p>
                 </a>
             </li>
             <li>
-                <a href="./table.html">
+                <a href="{{route('admin.yazar.index')}}">
                     <i class="material-icons">content_paste</i>
-                    <p>Table List</p>
+                    <p>Yazarlar</p>
                 </a>
             </li>
             <li>
-                <a href="./typography.html">
-                    <i class="material-icons">library_books</i>
-                    <p>Typography</p>
-                </a>
-            </li>
-            <li>
-                <a href="./icons.html">
+                <a href="{{route('admin.kitaplar.index')}}">
                     <i class="material-icons">bubble_chart</i>
-                    <p>Icons</p>
+                    <p>Kitaplar</p>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('admin.kategoriler.index')}}">
+                    <i class="material-icons">library_books</i>
+                    <p>Kategoriler</p>
                 </a>
             </li>
             <li>
