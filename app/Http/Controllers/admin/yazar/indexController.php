@@ -44,18 +44,29 @@ class indexController extends Controller
 
     public function update(Request $request){
         $id = $request->route('id');
-        $all = $request->except('_token');
-        $all['selflink'] = mHelper::permalink($all['name']);
-        if(@$all['image'] != null){
-            $all['image'] = imageUpload::singleUpload(rand(1,9000),'yazar',$request->file('image'));
+        $c = Yazarlar::where('id',$id)->count();
+        if($c!=0)
+        {
+            $data=Yazarlar::where('id','=',$id)->get();
+            $all = $request->except('_token');
+            $all['selflink'] = mHelper::permalink($all['name']);
+            $all['image'] = imageUpload::singleUploadUpdate(rand(1,9000),'yazar',$request->file('image'),$data,"image");
+            $update = Yazarlar::where('id','=',$id)->update($all);
+            if($update)
+            {
+                return redirect()->back()->with('status','Yazar Başarı İle Düzenlendi');
+            }else
+            {
+                return redirect()->back()->with('status','Yazar Düzenlenemedi');
+
+            }
+        }else
+        {
+            return redirect('/');
         }
-        $update = Yazarlar::where('id','=',$id)->update($all);
-        if($update){
-            return redirect()->to('/admin/yazar')->send();
-        }else{
-            return redirect()->back()->with('status','Beklenmedik Bir hata Oluştu');
-        }
+
     }
+
 
     public function delete($id){
         $c = Yazarlar::where('id', '=', $id)->count();

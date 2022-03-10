@@ -32,7 +32,7 @@ class indexController extends Controller
     public function store(Request $request){
         $all = $request->except('_token');
         $all['selflink'] = mHelper::permalink($all['name']);
-        $all['image'] = imageUpload::singleUpload(rand(1, 9000), "kitaplar", $request->file('image'));
+        $all['image'] = imageUpload::singleUpload(rand(1, 9000), "image", $request->file('image'));
         $add = Kitaplar::create($all);
         if($add){
             return redirect()->to('/admin/kitaplar')->send();
@@ -59,7 +59,7 @@ class indexController extends Controller
         $all = $request->except('_token');
         $all['selflink'] = mHelper::permalink($all['name']);
         if(@$all['image'] != null){
-            $all['image'] = imageUpload::singleUpload(rand(1,9000),'kitaplar',$request->file('image'));
+            $all['image'] = imageUpload::singleUpload(rand(1,9000),'image',$request->file('image'));
         }
         $update = Kitaplar::where('id','=',$id)->update($all);
         if($update){

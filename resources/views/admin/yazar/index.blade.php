@@ -22,6 +22,7 @@
                                 @foreach($data as $val)
                                     <tr>
                                         <td>{{$val->name}}</td>
+                                        <td><img src="/{{$val->image}}" style="height: 120px;width: 120px;"></td>
                                         <td><a href="{{route('admin.yazar.edit',['id'=>$val['id']])}}">Düzenle</a></td>
                                         <td><a href="{{route('admin.yazar.delete',['id'=>$val['id']])}}">Sil</a></td>
                                     </tr>

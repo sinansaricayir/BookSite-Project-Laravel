@@ -6,7 +6,7 @@ Tip 2: you can also add an image using data-image tag
 -->
     <div class="logo">
         <a href="{{route('admin.index')}}" class="simple-text">
-            Sinan Sarıçayır
+            <h4>{{\Illuminate\Support\Facades\Auth::user()->name}}</h4>
         </a>
     </div>
     <div class="sidebar-wrapper">
@@ -42,9 +42,9 @@ Tip 2: you can also add an image using data-image tag
                 </a>
             </li>
             <li>
-                <a href="./maps.html">
+                <a href="{{route('admin.slider.index')}}">
                     <i class="material-icons">location_on</i>
-                    <p>Maps</p>
+                    <p>Slider</p>
                 </a>
             </li>
             <li>
@@ -53,12 +53,21 @@ Tip 2: you can also add an image using data-image tag
                     <p>Notifications</p>
                 </a>
             </li>
-            <li class="active-pro">
+            <li>
                 <a href="upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Upgrade to PRO</p>
+                    <i class="material-icons">person</i>
+                    @auth
+                        <div class="box">
+                            <a onclick="event.preventDefault();document.getElementById('logout-form').submit();" href="{{route('logout')}}">Çıkış Yap</a>
+                            <form action="{{route('logout')}}" id="logout-form" method="POST">
+                                @csrf
+                            </form>
+                        </div>
+                    @endauth
                 </a>
             </li>
+
+
         </ul>
     </div>
 </div>

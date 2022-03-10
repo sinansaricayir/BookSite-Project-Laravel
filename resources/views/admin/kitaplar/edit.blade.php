@@ -13,7 +13,7 @@
                     @endif
                     <div class="card">
                         <div class="card-header" data-background-color="purple">
-                            <h4 class="title">Kitap Ekle</h4>
+                            <h4 class="title">Kitap Düzenle</h4>
                             <p class="category">Kitap Oluşturunuz </p>
                         </div>
                         <div class="card-content">
@@ -23,8 +23,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group label-floating is-empty">
-                                            <label class="control-label">{{$data[0]['name']}}</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="name" class="form-control" value="{{$data[0]['name']}}">
                                             <span class="material-input"></span>
                                         </div>
                                     </div>
@@ -34,9 +33,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group label-floating is-empty">
                                             <select class="form-control" name="yazarid" >
-                                                <option>Yazar Seçiniz</option>
                                                 @foreach($yazar as $val)
-                                                    <option value="{{$val->id}}">{{$val->name}}</option>
+                                                    <option @if($val['id'] == $data[0]['yazarid']) selected @endif value="{{$val->id}}">{{$val->name}}</option>
                                                 @endforeach
                                             </select>
                                             <span class="material-input"></span>
@@ -48,9 +46,21 @@
                                     <div class="col-md-12">
                                         <div class="form-group label-floating is-empty">
                                             <select class="form-control" name="yayinid" >
-                                                <option>Yayınevi Seçiniz</option>
                                                 @foreach($yayinevi as $val)
-                                                    <option value="{{$val->id}}">{{$val->name}}</option>
+                                                    <option @if($val['id'] == $data[0]['yayinid']) selected @endif value="{{$val->id}}">{{$val->name}}</option>
+                                                @endforeach
+                                            </select>
+                                            <span class="material-input"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group label-floating is-empty">
+                                            <select class="form-control" name="kategoriid" >
+                                                @foreach($kategoriler as $val)
+                                                    <option @if($val['id'] == $data[0]['kategoriid']) selected @endif value="{{$val->id}}">{{$val->name}}</option>
                                                 @endforeach
                                             </select>
                                             <span class="material-input"></span>
@@ -61,6 +71,9 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
+                                            @if($data[0]['image']!="")
+                                                <img src="{{asset($data[0]['image'])}}" style="width: 120px;height: 120px;">
+                                            @endif
                                             <input type="file" name="image" class="form-control" style="opacity: 1;position: inherit">
                                             <span class="material-input"></span>
                                         </div>
@@ -70,8 +83,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label class="control-label">{{$data[0]['fiyat']}}</label>
-                                            <input type="number" name="fiyat" class="form-control">
+                                            <input type="number" name="fiyat" class="form-control" value="{{$data[0]['fiyat']}}">
                                             <span class="material-input"></span>
                                         </div>
                                     </div>
@@ -87,7 +99,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <button type="submit" class="btn btn-primary pull-right">Kitap Ekle</button>
+                                    <button type="submit" class="btn btn-primary pull-right">Kitap Düzenle</button>
                                 </div>
 
                             </form>
